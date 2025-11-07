@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>캐시세끼</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="type/javascript">
+        window.onload = function() {
+            var visitTime = (new Date()).getTime();
+
+            var isAndroid = /android/i.test(navigator.userAgent);
+            var isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            if (isAndroid) {
+                location.href = "https://play.google.com/store/apps/details?id=com.grainbank.cash3kki";
+            } else if (isIos) {
+                location.href = "https://apps.apple.com/us/app/캐시세끼/id6751489661";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>AppLink Test</h1>
+    <p>This is an example</p>
+</body>
+</html>
