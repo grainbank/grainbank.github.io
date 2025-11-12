@@ -1,0 +1,11 @@
+{
+  "applinks": {
+      "apps": [],
+      "details": [
+      {
+        "appID": "5X3H5BR369.com.grainbank.cash3kki",
+        "paths": ["/", "/*"]
+      }
+    ]
+  }
+}
