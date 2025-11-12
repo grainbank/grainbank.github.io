@@ -1,0 +1,103 @@
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #FDF4C8;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.app-image {
+  width: 50%;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+  color: #555;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 0 8px 0;
+}
+
+/* 버튼 Row */
+.store-buttons-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.store-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+  flex: 1;
+  min-width: 140px;
+}
+
+.store-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.store-button.ios {
+  background-color: #000000;
+}
+
+.store-button.android {
+  background-color: #34A853;
+}
+
+.store-button:hover {
+  transform: scale(1.05);
+}
+
+/* 모바일 대응 */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .store-buttons-row {
+    flex-direction: row; /* 모바일에서도 가로 유지 */
+    flex-wrap: wrap;     /* 화면이 좁으면 줄바꿈 가능 */
+    gap: 8px;
+  }
+
+  .store-button {
+    flex: 1;
+    min-width: 120px;   /* 너무 작아지지 않도록 최소 width 설정 */
+  }
+}
