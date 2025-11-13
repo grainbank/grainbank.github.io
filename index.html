@@ -48,8 +48,17 @@
         <span>앱 열기</span>
       </a>
 
-      
     </div>
   </div>
+    <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+
+    if(code) {
+      openBtn.href = `grainbank://invite?code=${code}`;
+    } else {
+      openBtn.href = "grainbank://invite?code=UNTJNNF6";
+    }
+  </script>
 </body>
 </html>
