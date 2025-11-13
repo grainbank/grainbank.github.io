@@ -14,8 +14,7 @@
 </head>
 <body>
   <div class="container">
-    <!-- 타이틀 -->
-    <div class="title">밥 값하는 리워드 앱 캐시세끼</div>
+    
 
     <!-- 앱 이미지 -->
     <img
@@ -24,16 +23,23 @@
       class="app-image"
     />
 
+    <!-- 타이틀 -->
+    <div class="title">
+      밥 값하는 리워드 앱
+      <br>
+      캐시세끼
+    </div>
+
     <!-- 설명 -->
-    <p class="description">
+    <!-- <p class="description">
       밥 먹고 하미 키우면 쌀이 쌓인다?! 🍚<br>
       맞춤 쌀 추천부터 식사 기록까지,<br>
       즐겁게 밥 먹는 습관을 만들어보세요.
-    </p>
+    </p> -->
 
     <!-- App Store / Google Play 버튼 Row -->
     <div class="store-buttons-row">
-      <a href="https://apps.apple.com/us/app/캐시세끼/id6751489661" class="store-button ios" target="_blank" rel="noopener noreferrer">
+      <!-- <a href="https://apps.apple.com/us/app/캐시세끼/id6751489661" class="store-button ios" target="_blank" rel="noopener noreferrer">
          <img src="./icon/apple_icon.svg" alt="App Store">
 
         <span>App Store</span>
@@ -42,23 +48,54 @@
       <a href="https://play.google.com/store/apps/details?id=com.grainbank.cash3kki" class="store-button android" target="_blank" rel="noopener noreferrer">
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" alt="Google Play">
         <span>Google Play</span>
-      </a>
+      </a> -->
 
-      <a id="openAppBtn" href="grainbank://invite" class="store-button openapp" target="_blank" rel="noopener noreferrer">
-        <span>앱 열기</span>
+      <a id="openAppBtn" href="#" class="store-button openapp" target="_blank" rel="noopener noreferrer">
+        <span>캐시세끼 앱으로 보기</span>
+        <img id="download_icon" src="./icon/download.svg" width="20px" height="20px" />
       </a>
 
     </div>
   </div>
-    <script>
+  <script>
     const params = new URLSearchParams(window.location.search);
     const code = params.get('code');
+
+    const deepLink = `grainbank://invite?code=${code}`;
+
+    window.location.href = deepLink;
 
     if(code) {
       openBtn.href = `grainbank://invite?code=${code}`;
     } else {
       openBtn.href = "grainbank://invite?code=UNTJNNF6";
     }
+
+    setTimeout(() => {
+      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isIOS) {
+        window.location.href = "https://apps.apple.com/us/app/캐시세끼/id6751489661";
+      } else {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.grainbank.cash3kki";
+      }
+    }, 1500);
+
+    document.getElementById('openAppBtn').addEventListener('click', (e) => {
+      e.preventDefault(); // 기본 링크 이동 방지
+
+      const deepLink = `grainbank://invite?code=${code}`;
+      window.location.href = deepLink;
+
+      // 설치 안 되어 있으면 스토어로 fallback
+      setTimeout(() => {
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (isIOS) {
+          window.location.href = "https://apps.apple.com/us/app/캐시세끼/id6751489661";
+        } else {
+          window.location.href = "https://play.google.com/store/apps/details?id=com.grainbank.cash3kki";
+        }
+      }, 1500);
+    });
   </script>
 </body>
 </html>
