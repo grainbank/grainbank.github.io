@@ -73,6 +73,12 @@ body {
   background-color: #000000;
 }
 
+.store-button.openapp {
+  background-color: #F8C327;
+}
+
+/* F8C327 */
+
 .store-button.android {
   background-color: #34A853;
 }
