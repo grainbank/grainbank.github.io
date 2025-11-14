@@ -35,40 +35,33 @@
     </div>
   </div>
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code');
+    const openBtn = document.getElementById('openAppBtn');
 
-        document.getElementById('openAppBtn').addEventListener('click', (e) => {
-      e.preventDefault(); // 기본 링크 이동 방지
+    openBtn.addEventListener('click', (e) => {
+      e.preventDefault();
 
-        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-        if (isIOS) {
-          window.location.href = "https://apps.apple.com/us/app/캐시세끼/id6751489661";
-        } else {
-          window.location.href = "https://play.google.com/store/apps/details?id=com.grainbank.cash3kki";
-        }
-    });
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get('code') || 'UNTJNNF6';
 
-    const deepLink = `grainbank://invite?code=${code}`;
-
-    window.location.href = deepLink;
-
-    if(code) {
-      openBtn.href = `grainbank://invite?code=${code}`;
-    } else {
-      openBtn.href = "grainbank://invite?code=UNTJNNF6";
-    }
-
-    setTimeout(() => {
+      const deepLink = `grainbank://invite?code=${code}`;
       const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-      if (isIOS) {
-        window.location.href = "https://apps.apple.com/us/app/캐시세끼/id6751489661";
-      } else {
-        window.location.href = "https://play.google.com/store/apps/details?id=com.grainbank.cash3kki";
-      }
-    }, 1500);
 
+      const start = Date.now();
 
+      window.location = deepLink;
+
+      setTimeout(() => {
+        const end = Date.now();
+
+        if (Date.now() - start < 2000) {
+          if (isIOS) {
+            window.location = "https://apps.apple.com/us/app/캐시세끼/id6751489661";
+          } else {
+            window.location = "https://play.google.com/store/apps/details?id=com.grainbank.cash3kki";
+          }
+        }
+      }, 1500);
+    });
   </script>
 </body>
 </html>
